@@ -40,7 +40,7 @@ a {
   color: #446A46;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
-  margin: 10px 50px;
+  margin: 10px 33px;
 }
 
 a:hover:not(.btn) {
@@ -95,6 +95,121 @@ a:hover:not(.btn) {
   color: #395B64;
 }
 
+.scrolldown {
+  --color: white;
+  --sizeX: 30px;
+  --sizeY: 50px;
+  position: absolute;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  margin-left: var(sizeX / 2);
+  border: calc(var(--sizeX) / 10) solid var(--color);
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  bottom: 50px;
+  left: 150px;
+}
+
+.scrolldown1 {
+  --color: white;
+  --sizeX: 30px;
+  --sizeY: 50px;
+  position: absolute;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  margin-left: var(sizeX / 2);
+  border: calc(var(--sizeX) / 10) solid var(--color);
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  bottom: 50px;
+  right: 150px;
+}
+
+.scrolldown::before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: var(--color);
+  border-radius: 100%;
+  animation: scrolldown-anim 2s infinite;
+  box-sizing: border-box;
+  box-shadow: 0px -5px 3px 1px #C6DCE4;
+}
+
+.scrolldown1::before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: var(--color);
+  border-radius: 100%;
+  animation: scrolldown-anim 2s infinite;
+  box-sizing: border-box;
+  box-shadow: 0px -5px 3px 1px #C6DCE4;
+}
+
+@keyframes scrolldown-anim {
+  0% {
+    opacity: 0;
+    height: 6px;
+  }
+  40% {
+    opacity: 1;
+    height: 10px;
+  }
+  80% {
+    transform: translate(0, 20px);
+    height: 10px;
+    opacity: 0;
+  }
+  100% {
+    height: 3px;
+    opacity: 0;
+  }
+}
+.chevrons {
+  padding: 6px 0 0 0;
+  margin-left: -3px;
+  margin-top: 48px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chevrondown {
+  margin-top: -6px;
+  position: relative;
+  border: solid var(--color);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+.chevrondown:nth-child(odd) {
+  animation: pulse 500ms ease infinite alternate;
+}
+.chevrondown:nth-child(even) {
+  animation: pulse 500ms ease infinite alternate 250ms;
+}
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
 .intro {
   width: 40%;
   margin: auto;
@@ -110,17 +225,31 @@ a:hover:not(.btn) {
   width: 30%;
   float: left;
   margin-right: 30px;
+  position: relative;
+  top: 0;
+  transition: all .4s ease-in-out;
+}
+
+.img-skill1:hover {
+  top: -50px;
 }
 
 .img-skill2 {
   width: 30%;
   float: right;
   margin-left: 30px;
+  position: relative;
+  top: 0;
+  transition: all .5s ease-in-out;
+}
+
+.img-skill2:hover {
+  top: -50px;
 }
 
 .contact-message {
   width: 45%;
-  margin: 30px auto 50px;
+  margin: 30px auto 80px;
 }
 
 .btn {
@@ -132,7 +261,7 @@ a:hover:not(.btn) {
   background-image: linear-gradient(to bottom, #ADCF9F, #1A4D2E);
   -webkit-border-radius: 14;
   -moz-border-radius: 14;
-  border-radius: 14px;
+  border-radius: 10px;
   text-shadow: 0 0 3px #666666;
   -webkit-box-shadow: 0 2px 3px #666666;
   -moz-box-shadow: 0 2px 3px #666666;
@@ -142,6 +271,7 @@ a:hover:not(.btn) {
   font-family: 'Roboto', sans-serif;
   padding: 12px 22px 12px 22px;
   text-decoration: none;
+  transition: all .5s ease-in-out;
 }
 
 .btn:active {
@@ -150,15 +280,48 @@ a:hover:not(.btn) {
   text-decoration: none;
 }
 
+.btn:hover {
+  transform: scale(1.5);
+}
+
+.insta-icon {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.github-icon {
+  max-width: 29px;
+  max-height: 29px;
+}
+
+.reddit-icon {
+  max-width: 33px;
+  max-height: 33px;
+  position: relative;
+  top: 3px;
+}
+
+.note {
+  position: relative;
+  top: 40px;
+  font-size: 0.9rem;
+  font-family: 'Nunito', sans-serif;
+  color: #7F8487;
+}
+
 .icons {
-  max-width: 35px;
-  max-height: 35px;
+  transition: all .3s ease-in-out;
+}
+
+.icons:hover {
+  transform: scale(1.5);
 }
 
 /*****************************************************************************ID SELECTORS**************************************************************************/
 
 #rights {
   color: #1A4D2E;
-  padding: 20px 0;
+  padding-top: 20px;
   font-size: 0.9rem;
+  font-family: 'Comfortaa', cursive;
 }
